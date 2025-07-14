@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles not easily done with Tailwind utilities directly */
+body {
+    background-color: #0f172a;
+    /* Fallback if not set via Tailwind */
+    color: white;
+    padding-bottom: 70px;
+}
+
+.card {
+    background-color: #1e293b;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #1e293b;
+    border-top: 1px solid #334155;
+    z-index: 50;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0;
+    color: #94a3b8;
+    font-size: 0.75rem;
+}
+
+.nav-item.active {
+    color: #f59e0b;
+}
+
+.nav-icon {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+/* Define custom utility classes for buttons if preferred, or apply directly */
+.btn-primary {
+    background-color: #f59e0b;
+    color: black;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+.btn-secondary {
+    background-color: #334155;
+    color: white;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+/* Input styles can be applied directly via Tailwind classes in JSX */
+input,
+select {
+    /* Example: bg-slate-700 border border-slate-600 text-white w-full p-3 rounded-lg mb-4 */
+}
+
+.live-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
+    animation: pulse 1.5s infinite;
+}
+
+.chart-container {
+    height: 250px;
+    width: 100%;
+    position: relative;
+}
+
+.coin-card {
+    background-color: #1e293b;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #334155;
+}
+
+.coin-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.price-up {
+    color: #10b981;
+}
+
+.price-down {
+    color: #ef4444;
+}
+
+.time-selector {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.time-option {
+    background: #1e293b;
+    color: #94a3b8;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.time-option.active {
+    background: #f59e0b;
+    color: black;
+}
+
+.btc-price-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.btc-price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.activity-container {
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+}
+
+.activity-item {
+    position: absolute;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.chart-stats {
+    display: flex;
+    gap: 15px;
+    margin-top: 8px;
+    color: #94a3b8;
+    font-size: 0.65rem;
+}
+
+.chart-stats div {
+    display: flex;
+    align-items: center;
+}
+
+.chart-stats span {
+    margin-left: 3px;
+    color: white;
+    font-weight: 500;
+    font-size: 0.7rem;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    /* Controlled by React state via inline style or conditional class */
+}
+
+.modal-content {
+    background-color: #1e293b;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #f59e0b;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
